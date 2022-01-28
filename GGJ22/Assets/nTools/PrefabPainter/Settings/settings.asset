@@ -1481,11 +1481,11 @@ MonoBehaviour:
     levelsOutWhite: 255
   - name: Misc
     brushes:
-    - name: good trees
+    - name: stones random
       settings:
         brushRadius: 5
-        brushSpacing: 3.3
-        brushOverlapCheckMode: 1
+        brushSpacing: 2
+        brushOverlapCheckMode: 0
         brushOverlapDistance: 0.5
         brushOverlapCheckObjects: 1
         brushOverlapCheckLayers:
@@ -1589,7 +1589,7 @@ MonoBehaviour:
         multibrushPatternContinue: 0
         slopeEnabled: 1
         slopeAngleMin: 0
-        slopeAngleMax: 20
+        slopeAngleMax: 35
         slopeVector: 1
         slopeVectorCustom: {x: 0, y: 1, z: 0}
         slopeVectorFlip: 0
@@ -1600,27 +1600,18 @@ MonoBehaviour:
         gridNormal: {x: 0, y: 1, z: 0}
         gridAngle: 0
       prefabSlots:
-      - gameObject: {fileID: 1608096764148392, guid: ab36f4e752fd5d74d8e9f8f24c8864f2,
-          type: 3}
-      - gameObject: {fileID: 1449854524503252, guid: 408f59ce148892a4480e8987e8a029b1,
-          type: 3}
-      - gameObject: {fileID: 1925185884874842, guid: 44b363e80a9e4fd46ba03e4b71173a9e,
-          type: 3}
-      - gameObject: {fileID: 1407229615668976, guid: 1ce022d65e1e7b84d9e5ae4a479c39ba,
-          type: 3}
-      - gameObject: {fileID: 1341243902856316, guid: 74cd91a7648f08249bcdb5736bcf8a86,
-          type: 3}
-      - gameObject: {fileID: 1046268137424332, guid: 56edbd376562e9544ab88753fd3c4682,
-          type: 3}
-      - gameObject: {fileID: 1693210484172212, guid: aec9b02eac062314dafd229d901fd52c,
-          type: 3}
-      - gameObject: {fileID: 1554581858039714, guid: 777f53d3993533d4184fa410d0cdfae7,
-          type: 3}
-      - gameObject: {fileID: 1328730529729822, guid: d5fadda3068c73c4188ca488912729dd,
-          type: 3}
+      - gameObject: {fileID: 152170, guid: 13209b503b9464a889e6cdcd72c36431, type: 3}
+      - gameObject: {fileID: 171914, guid: 84a4a2a0b8dfe40e289fd2d4812d4019, type: 3}
+      - gameObject: {fileID: 0}
+      - gameObject: {fileID: 0}
+      - gameObject: {fileID: 0}
+      - gameObject: {fileID: 0}
+      - gameObject: {fileID: 0}
+      - gameObject: {fileID: 0}
+      - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 1
+      selected: 0
       colorTag: 0
     - name: leaf
       settings:
@@ -2018,145 +2009,12 @@ MonoBehaviour:
       selectedSlot: 0
       selected: 0
       colorTag: 0
-    - name: SM_Generic_Tree_01
-      settings:
-        brushRadius: 1
-        brushSpacing: 0.5
-        brushOverlapCheckMode: 0
-        brushOverlapDistance: 0.5
-        brushOverlapCheckObjects: 1
-        brushOverlapCheckLayers:
-          serializedVersion: 2
-          m_Bits: 0
-        surfaceOffset: 0
-        orientationTransformMode: 0
-        orientationMode: 0
-        alongBrushStroke: 0
-        rotation: {x: 0, y: 0, z: 0}
-        randomizeOrientationX: 0
-        randomizeOrientationY: 0
-        randomizeOrientationZ: 0
-        scaleTransformMode: 0
-        scaleMode: 0
-        scaleUniformMin: 1
-        scaleUniformMax: 1
-        scalePerAxisMin: {x: 1, y: 1, z: 1}
-        scalePerAxisMax: {x: 1, y: 1, z: 1}
-        pinFixedRotation: 0
-        pinFixedRotationValue: {x: 0, y: 0, z: 0}
-        pinFixedScale: 0
-        pinFixedScaleValue: {x: 1, y: 1, z: 1}
-        placeEulerAngles: {x: 0, y: 0, z: 0}
-        placeScale: 1
-        multibrushEnabled: 0
-        multibrushSlots:
-        - enabled: 1
-          raiting: 1
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 1, y: 1, z: 1}
-        - enabled: 1
-          raiting: 1
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 1, y: 1, z: 1}
-        - enabled: 1
-          raiting: 1
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 1, y: 1, z: 1}
-        - enabled: 1
-          raiting: 1
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 1, y: 1, z: 1}
-        - enabled: 1
-          raiting: 1
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 1, y: 1, z: 1}
-        - enabled: 1
-          raiting: 1
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 1, y: 1, z: 1}
-        - enabled: 1
-          raiting: 1
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 1, y: 1, z: 1}
-        - enabled: 1
-          raiting: 1
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 1, y: 1, z: 1}
-        - enabled: 1
-          raiting: 1
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 1, y: 1, z: 1}
-        - enabled: 1
-          raiting: 1
-          position: {x: 0, y: 0, z: 0}
-          rotation: {x: 0, y: 0, z: 0}
-          scale: {x: 1, y: 1, z: 1}
-          pivotMode: 0
-          pivotOffset: {x: 1, y: 1, z: 1}
-        multibrushPaintSelectedSlot: 0
-        multibrushMode: 0
-        multibrushPattern: 0 1 2 3 5 6 7 8 9
-        multibrushPatternContinue: 0
-        slopeEnabled: 0
-        slopeAngleMin: 0
-        slopeAngleMax: 35
-        slopeVector: 1
-        slopeVectorCustom: {x: 0, y: 1, z: 0}
-        slopeVectorFlip: 0
-        gridEnabled: 0
-        gridOrigin: {x: 0, y: 0}
-        gridStep: {x: 5, y: 5}
-        gridPlane: 1
-        gridNormal: {x: 0, y: 1, z: 0}
-        gridAngle: 0
-      prefabSlots:
-      - gameObject: {fileID: 1608096764148392, guid: ab36f4e752fd5d74d8e9f8f24c8864f2,
-          type: 3}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      selectedSlot: 0
-      selected: 0
-      colorTag: 0
     levelsGamma: 1
     levelsInBlack: 0
     levelsInWhite: 255
     levelsOutBlack: 0
     levelsOutWhite: 255
-  activeTab: 2
+  activeTab: 0
   paintOnSelected: 0
   paintLayers:
     serializedVersion: 2
