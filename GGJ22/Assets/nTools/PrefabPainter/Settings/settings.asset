@@ -2014,7 +2014,7 @@ MonoBehaviour:
     levelsInWhite: 255
     levelsOutBlack: 0
     levelsOutWhite: 255
-  activeTab: 2
+  activeTab: 0
   paintOnSelected: 0
   paintLayers:
     serializedVersion: 2
