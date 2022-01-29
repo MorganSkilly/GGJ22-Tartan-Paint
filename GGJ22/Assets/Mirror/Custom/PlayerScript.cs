@@ -11,9 +11,12 @@ namespace QuickStart
         public float jumpForce = 10f;
         public Transform playerHead;
         float xRot = 0f, yRot = 0f;
+        public MeshRenderer goodMesh, badMesh;
 
         public override void OnStartLocalPlayer()
         {
+            goodMesh.gameObject.SetActive(false);
+            badMesh.gameObject.SetActive(false);
             Camera.main.transform.SetParent(playerHead.transform);
             Camera.main.transform.localPosition = new Vector3(0, 0, 0);
             rigidbody = GetComponent<Rigidbody>();
@@ -42,6 +45,8 @@ namespace QuickStart
 
         void FixedUpdate()
         {
+            if (!isLocalPlayer) { return; }
+
             Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
             float x = Input.GetAxis("Horizontal");
