@@ -1,10 +1,41 @@
 ﻿using Mirror;
+using System;
 using UnityEngine;
 
 namespace QuickStart
 {
     public class PlayerScript : NetworkBehaviour
     {
+        public TextMesh playerNameText;
+        public GameObject floatingInfo;
+
+        [SyncVar(hook = nameof(OnNameChanged))]
+        public string playerName;
+
+        [SyncVar(hook = nameof(OnTeamChanged))]
+        public bool playerTeam;
+
+        void OnNameChanged(string _Old, string _New)
+        {
+            playerNameText.text = playerName;
+        }
+
+        void OnTeamChanged(bool _Old, bool _New)
+        {
+            if (playerTeam)
+            {
+                playerNameText.color = Color.red;
+                goodModel.SetActive(false);
+                badModel.SetActive(true);
+            }
+            else
+            {
+                playerNameText.color = Color.blue;
+                goodModel.SetActive(true);
+                badModel.SetActive(false);
+            }
+        }
+
         Rigidbody rigidbody;
         public float mouseSensitivity = 100f;
         public float speed = 10f;
@@ -12,8 +43,11 @@ namespace QuickStart
         public Transform playerHead;
         float xRot = 0f, yRot = 0f;
         public MeshRenderer goodMesh, badMesh;
+        public GameObject goodModel, badModel;
 
         public GameObject particleCaster;
+
+        public bool team;
 
         public override void OnStartLocalPlayer()
         {
@@ -23,12 +57,39 @@ namespace QuickStart
             Camera.main.transform.localPosition = new Vector3(0, 0, 0);
             rigidbody = GetComponent<Rigidbody>();
             Cursor.lockState = CursorLockMode.Locked;
+
+            floatingInfo.transform.localPosition = new Vector3(0, -0.3f, 0.6f);
+            floatingInfo.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            string name = Environment.MachineName;
+
+            bool team = UnityEngine.Random.Range(0, 2) == 1;
+            CmdSetupPlayer(name, team);
+        }
+
+        [Command]
+        public void CmdSetupPlayer(string _name, bool _team)
+        {
+            // player info sent to server, then server updates sync vars which handles it on all clients
+            playerName = _name;
+            playerTeam = _team;
+
+            if (_team)
+            {
+                goodModel.SetActive(false);
+                badModel.SetActive(true);
+            }
+            else
+            {
+                goodModel.SetActive(true);
+                badModel.SetActive(false);
+            }
         }
 
         void Update()
         {
             if (!isLocalPlayer)
-            { 
+            {
+                floatingInfo.transform.LookAt(Camera.main.transform);
                 return; 
             }
 
@@ -94,18 +155,17 @@ namespace QuickStart
         {
             RaycastHit hit;
 
-            Debug.DrawRay(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            Debug.DrawRay(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, Color.red, 1f);
 
             particleCaster.GetComponent<ParticleSystem>().Play();
 
-            if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, out hit, Mathf.Infinity))
+            if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, out hit, 20f))
             {
+                Debug.Log(gameObject.name + " - HIT - " + hit.transform.gameObject.name);
                 if (hit.transform.gameObject.tag == "Player" && hit.transform.gameObject != gameObject)
                 {
                     //if (hit.transform.gameObject.GetComponent<PlayerScript>().isActiveAndEnabled)
                     //    hit.transform.gameObject.GetComponent<PlayerScript>().health -= 10;
-
-                    Debug.Log(gameObject.name + " - HIT - " + hit.transform.gameObject.name);
 
                     hit.transform.position = Vector3.zero;
                     //Destroy(hit.transform.gameObject);
