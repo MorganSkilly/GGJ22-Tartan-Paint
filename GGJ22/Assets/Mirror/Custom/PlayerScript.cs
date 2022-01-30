@@ -60,7 +60,7 @@ namespace QuickStart
 
             floatingInfo.transform.localPosition = new Vector3(0, -0.3f, 0.6f);
             floatingInfo.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            string name = Environment.MachineName;
+            string name = Environment.UserName;
 
             bool team = UnityEngine.Random.Range(0, 2) == 1;
             CmdSetupPlayer(name, team);
@@ -127,21 +127,6 @@ namespace QuickStart
 
             if (Input.GetMouseButton(0))
                 CmdShootRay();
-
-            /*RaycastHit hit;
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-            {
-                Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-                if (Input.GetMouseButtonDown(0))
-                {
-                    if (hit.transform.gameObject.GetComponent<PlayerScript>().isActiveAndEnabled)
-                        hit.transform.gameObject.GetComponent<PlayerScript>().CmdUpdatePlayerHealth(health - 10);
-                }
-            }
-            else
-            {
-                Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            }*/
         }
 
         [Command]
@@ -162,14 +147,11 @@ namespace QuickStart
             if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, out hit, 20f))
             {
                 Debug.Log(gameObject.name + " - HIT - " + hit.transform.gameObject.name);
+
                 if (hit.transform.gameObject.tag == "Player" && hit.transform.gameObject != gameObject)
                 {
-                    //if (hit.transform.gameObject.GetComponent<PlayerScript>().isActiveAndEnabled)
-                    //    hit.transform.gameObject.GetComponent<PlayerScript>().health -= 10;
-
-                    hit.transform.position = Vector3.zero;
-                    //Destroy(hit.transform.gameObject);
-                    //hit.transform.gameObject.GetComponent<HealthTracker>().health -= 10;
+                    if (team != hit.transform.gameObject.GetComponent<PlayerScript>().playerTeam)
+                        hit.transform.position = Vector3.zero;
                 }
             }
         }
