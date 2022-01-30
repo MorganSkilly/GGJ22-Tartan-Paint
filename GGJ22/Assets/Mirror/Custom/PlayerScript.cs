@@ -150,7 +150,7 @@ namespace QuickStart
 
                 if (hit.transform.gameObject.tag == "Player" && hit.transform.gameObject != gameObject)
                 {
-                    if (team != hit.transform.gameObject.GetComponent<PlayerScript>().playerTeam)
+                    if (playerTeam != hit.transform.gameObject.GetComponent<PlayerScript>().playerTeam)
                         hit.transform.position = Vector3.zero;
                 }
             }
