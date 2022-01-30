@@ -147,7 +147,7 @@ namespace QuickStart
             Vector3 move = transform.right * x + transform.forward * z;
 
             if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
-                GetComponent<AudioSource>().volume = 0.2f;
+                GetComponent<AudioSource>().volume = 0.01f;
             else
                 GetComponent<AudioSource>().volume = 0f;
 
