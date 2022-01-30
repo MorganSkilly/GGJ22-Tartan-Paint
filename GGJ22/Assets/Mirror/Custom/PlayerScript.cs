@@ -146,10 +146,13 @@ namespace QuickStart
 
             Vector3 move = transform.right * x + transform.forward * z;
 
-            if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
-                GetComponent<AudioSource>().volume = 0.01f;
-            else
-                GetComponent<AudioSource>().volume = 0f;
+            if (Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d"))
+                GetComponent<AudioSource>().Play();
+
+            if (!Input.GetKey("w") && !Input.GetKey("a") && !Input.GetKey("s") && !Input.GetKey("d"))
+                if (GetComponent<AudioSource>().isPlaying)
+                    GetComponent<AudioSource>().Stop();
+
 
             rigidbody.MovePosition(transform.position + move * Time.deltaTime * speed);
 
@@ -174,7 +177,7 @@ namespace QuickStart
 
                 particleCaster.GetComponent<ParticleSystem>().Play();
 
-                AudioSource.PlayClipAtPoint(spellNoise, transform.position, 1);
+                AudioSource.PlayClipAtPoint(spellNoise, transform.position, 0.3f);
 
                 if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, out hit, 20f))
                 {
