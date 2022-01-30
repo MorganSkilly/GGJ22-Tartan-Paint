@@ -146,12 +146,12 @@ namespace QuickStart
 
             Vector3 move = transform.right * x + transform.forward * z;
 
-            if (Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d"))
-                GetComponent<AudioSource>().Play();
+            //if (Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d"))
+               // GetComponent<AudioSource>().Play();
 
-            if (!Input.GetKey("w") && !Input.GetKey("a") && !Input.GetKey("s") && !Input.GetKey("d"))
-                if (GetComponent<AudioSource>().isPlaying)
-                    GetComponent<AudioSource>().Stop();
+            //if (!Input.GetKey("w") && !Input.GetKey("a") && !Input.GetKey("s") && !Input.GetKey("d"))
+              //  if (GetComponent<AudioSource>().isPlaying)
+              //      GetComponent<AudioSource>().Stop();
 
 
             rigidbody.MovePosition(transform.position + move * Time.deltaTime * speed);
