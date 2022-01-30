@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8575869519140112960}
   m_Layer: 0
   m_Name: Good
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,6 @@ GameObject:
   - component: {fileID: 6863039916342182053}
   - component: {fileID: 7975275342801108477}
   - component: {fileID: 4214643808007369431}
-  - component: {fileID: 8938949350905362638}
   - component: {fileID: 6546214611694765130}
   m_Layer: 0
   m_Name: Player
@@ -323,19 +322,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &8938949350905362638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315594773655737188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3484fb7b60bf124db9b8b07ac7dc68a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &6546214611694765130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +399,7 @@ GameObject:
   - component: {fileID: 1055789565789678378}
   m_Layer: 0
   m_Name: Bad
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,7 +430,7 @@ GameObject:
   - component: {fileID: 1621599557611178133}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -544,7 +530,7 @@ PrefabInstance:
     - target: {fileID: -1215088673186257983, guid: 15b12641ac068f64f80428836c089f79,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 15b12641ac068f64f80428836c089f79,
         type: 3}
@@ -554,17 +540,17 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 15b12641ac068f64f80428836c089f79,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1838218484297817344, guid: 15b12641ac068f64f80428836c089f79,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5583283331389334309, guid: 15b12641ac068f64f80428836c089f79,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15b12641ac068f64f80428836c089f79, type: 3}
@@ -645,12 +631,12 @@ PrefabInstance:
     - target: {fileID: -3806639812833780621, guid: d0bd95bc9aa1c1b488a47c841c326150,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: -1215088673186257983, guid: d0bd95bc9aa1c1b488a47c841c326150,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d0bd95bc9aa1c1b488a47c841c326150,
         type: 3}
@@ -660,12 +646,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d0bd95bc9aa1c1b488a47c841c326150,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5583283331389334309, guid: d0bd95bc9aa1c1b488a47c841c326150,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0bd95bc9aa1c1b488a47c841c326150, type: 3}

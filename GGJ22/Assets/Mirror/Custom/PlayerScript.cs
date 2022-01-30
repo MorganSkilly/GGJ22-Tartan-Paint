@@ -63,6 +63,23 @@ namespace QuickStart
             string name = Environment.UserName;
 
             bool team = UnityEngine.Random.Range(0, 2) == 1;
+
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            int good = 0, bad = 0;
+
+            foreach (GameObject player in players)
+            {
+                if (player.GetComponent<PlayerScript>().playerTeam)
+                    good++;
+                else
+                    bad++;
+            }
+
+            if (good > bad)
+                team = false;
+            else
+                team = true;
+
             CmdSetupPlayer(name, team);
         }
 
@@ -138,22 +155,29 @@ namespace QuickStart
         [ClientRpc]
         void RpcFireWeapon()
         {
-            RaycastHit hit;
-
-            Debug.DrawRay(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, Color.red, 1f);
-
-            particleCaster.GetComponent<ParticleSystem>().Play();
-
-            if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, out hit, 20f))
+            if (!particleCaster.GetComponent<ParticleSystem>().isPlaying)
             {
-                Debug.Log(gameObject.name + " - HIT - " + hit.transform.gameObject.name);
+                RaycastHit hit;
 
-                if (hit.transform.gameObject.tag == "Player" && hit.transform.gameObject != gameObject)
+                Debug.DrawRay(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, Color.red, 1f);
+
+                particleCaster.GetComponent<ParticleSystem>().Play();
+
+                if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, out hit, 20f))
                 {
-                    if (playerTeam != hit.transform.gameObject.GetComponent<PlayerScript>().playerTeam)
-                        hit.transform.position = Vector3.zero;
+                    Debug.Log(gameObject.name + " - HIT - " + hit.transform.gameObject.name);
+
+                    if (hit.transform.gameObject.tag == "Player" && hit.transform.gameObject != gameObject)
+                    {
+                        if (playerTeam != hit.transform.gameObject.GetComponent<PlayerScript>().playerTeam)
+                        {
+                            GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
+                            hit.transform.position = spawners[UnityEngine.Random.Range(0, spawners.Length)].transform.position;
+                        }
+                    }
                 }
             }
+
         }
     }
 }

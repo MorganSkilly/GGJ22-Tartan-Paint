@@ -1,5 +1,128 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6610932518427844344
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74483714bbf784b45b0c9c7c76035dd8, type: 3}
+  m_Name: Fog
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  useSceneSettings:
+    overrideState: 1
+    value: 0
+  fogMode:
+    overrideState: 1
+    value: 2
+  globalDensity:
+    overrideState: 1
+    value: 0.86
+  fogStartDistance:
+    overrideState: 1
+    value: 0
+  fogEndDistance:
+    overrideState: 0
+    value: 600
+  colorSource:
+    overrideState: 0
+    value: 0
+  skyboxMipLevel:
+    overrideState: 0
+    value: 0
+  fogColor:
+    overrideState: 1
+    value: {r: 0.26404986, g: 0.22152013, b: 0.3584906, a: 1}
+  fogColorGradient:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  gradientDistance:
+    overrideState: 0
+    value: 1000
+  gradientUseFarClipPlane:
+    overrideState: 0
+    value: 1
+  distanceFog:
+    overrideState: 0
+    value: 1
+  distanceDensity:
+    overrideState: 0
+    value: 1
+  useRadialDistance:
+    overrideState: 0
+    value: 1
+  skyboxInfluence:
+    overrideState: 0
+    value: 1
+  enableDirectionalLight:
+    overrideState: 0
+    value: 0
+  useLightDirection:
+    overrideState: 0
+    value: 1
+  useLightColor:
+    overrideState: 0
+    value: 1
+  useLightIntensity:
+    overrideState: 0
+    value: 1
+  lightColor:
+    overrideState: 0
+    value: {r: 1, g: 0.89, b: 0.55, a: 1}
+  lightDirection:
+    overrideState: 0
+    value: {x: 0, y: 0.5, z: -1}
+  lightIntensity:
+    overrideState: 0
+    value: 1
+  heightFog:
+    overrideState: 0
+    value: 1
+  height:
+    overrideState: 0
+    value: 10
+  heightDensity:
+    overrideState: 0
+    value: 0.75
+  heightFogNoise:
+    overrideState: 0
+    value: 0
+  heightNoiseTex:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  heightNoiseSize:
+    overrideState: 0
+    value: 0.25
+  heightNoiseStrength:
+    overrideState: 0
+    value: 1
+  heightNoiseSpeed:
+    overrideState: 0
+    value: 2
+  lightScattering:
+    overrideState: 0
+    value: 0
+  scatterIntensity:
+    overrideState: 0
+    value: 10
+  scatterThreshold:
+    overrideState: 0
+    value: 1
+  scatterDiffusion:
+    overrideState: 0
+    value: 10
+  scatterSoftKnee:
+    overrideState: 0
+    value: 0.5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 2778167095170058410}
+  - {fileID: -6610932518427844344}
 --- !u!114 &2778167095170058410
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -72,14 +196,14 @@ MonoBehaviour:
     overrideState: 0
     value: 81
   colorFilter:
-    overrideState: 0
-    value: {r: 0.21512477, g: 0.11307405, b: 0.31132078, a: 1}
+    overrideState: 1
+    value: {r: 0.2568015, g: 0.1718138, b: 0.3679245, a: 1}
   hueShift:
-    overrideState: 1
-    value: 46
+    overrideState: 0
+    value: -180
   saturation:
-    overrideState: 1
-    value: -70
+    overrideState: 0
+    value: 0
   brightness:
     overrideState: 0
     value: 0
@@ -88,16 +212,16 @@ MonoBehaviour:
     value: 0
   contrast:
     overrideState: 0
-    value: 0
+    value: 100
   mixerRedOutRedIn:
     overrideState: 0
-    value: 100
+    value: 200
   mixerRedOutGreenIn:
     overrideState: 0
-    value: 0
+    value: 49
   mixerRedOutBlueIn:
     overrideState: 0
-    value: 0
+    value: 11
   mixerGreenOutRedIn:
     overrideState: 0
     value: 0
@@ -118,13 +242,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 1, y: 0.25966507, z: 0.3482651, w: 0}
   gamma:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 1, y: 0.24874794, z: 0.37532133, w: 0}
   gain:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 1, y: 0.20289922, z: 0.28590876, w: 0}
   masterCurve:
     overrideState: 0
     value:
