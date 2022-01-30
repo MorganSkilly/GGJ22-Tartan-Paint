@@ -36,6 +36,8 @@ namespace QuickStart
             }
         }
 
+        public AudioClip spellNoise;
+
         Rigidbody rigidbody;
         public float mouseSensitivity = 100f;
         public float speed = 10f;
@@ -57,6 +59,7 @@ namespace QuickStart
             Camera.main.transform.localPosition = new Vector3(0, 0, 0);
             rigidbody = GetComponent<Rigidbody>();
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
 
             floatingInfo.transform.localPosition = new Vector3(0, -0.3f, 0.6f);
             floatingInfo.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -122,8 +125,11 @@ namespace QuickStart
             transform.localRotation = Quaternion.Euler(0f, -yRot, 0f);
             playerHead.Rotate(Vector3.up * mouseX);
 
+            RaycastHit hit;
+
             if (Input.GetKeyDown("space"))
-                rigidbody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+                if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.down) * 1000, out hit, 1f))
+                    rigidbody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
         }
 
         void FixedUpdate()
@@ -162,6 +168,8 @@ namespace QuickStart
                 Debug.DrawRay(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, Color.red, 1f);
 
                 particleCaster.GetComponent<ParticleSystem>().Play();
+
+                AudioSource.PlayClipAtPoint(spellNoise, transform.position, 1);
 
                 if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, out hit, 20f))
                 {
