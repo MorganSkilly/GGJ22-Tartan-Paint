@@ -296,9 +296,9 @@ MonoBehaviour:
   floatingInfo: {fileID: 2237560065308035556}
   playerName: 
   playerTeam: 1
-  mouseSensitivity: 400
-  speed: 4
-  jumpForce: 10
+  mouseSensitivity: 200
+  speed: 3.5
+  jumpForce: 7
   playerHead: {fileID: 1621599557611178133}
   goodMesh: {fileID: 3688987178151052083}
   badMesh: {fileID: 3181794338801126253}
