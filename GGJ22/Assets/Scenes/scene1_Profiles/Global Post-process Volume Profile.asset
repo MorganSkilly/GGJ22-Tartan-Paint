@@ -17,7 +17,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   useSceneSettings:
-    overrideState: 1
+    overrideState: 0
     value: 0
   fogMode:
     overrideState: 1
@@ -109,8 +109,8 @@ MonoBehaviour:
     overrideState: 0
     value: 2
   lightScattering:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1
   scatterIntensity:
     overrideState: 0
     value: 10
